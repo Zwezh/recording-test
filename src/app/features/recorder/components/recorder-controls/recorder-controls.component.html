@@ -1,0 +1,66 @@
+<div class="control-row" aria-label="Recorder controls">
+  <button
+    type="button"
+    class="icon-button settings-button"
+    [attr.aria-expanded]="settingsOpen()"
+    aria-controls="quality-menu"
+    aria-label="Open quality settings"
+    title="Quality settings"
+    (click)="settingsToggled.emit()"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M19.4 13.5c.1-.5.1-1 .1-1.5s0-1-.1-1.5l2-1.5-2-3.5-2.4 1a8.8 8.8 0 0 0-2.6-1.5L14 2.5h-4l-.4 2.5A8.8 8.8 0 0 0 7 6.5l-2.4-1-2 3.5 2 1.5A9.9 9.9 0 0 0 4.5 12c0 .5 0 1 .1 1.5l-2 1.5 2 3.5 2.4-1a8.8 8.8 0 0 0 2.6 1.5l.4 2.5h4l.4-2.5a8.8 8.8 0 0 0 2.6-1.5l2.4 1 2-3.5-2-1.5ZM12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5Z"
+      />
+    </svg>
+  </button>
+
+  @if (settingsOpen()) {
+    <div id="quality-menu" class="quality-menu" role="menu" aria-label="Video quality">
+      @for (quality of qualityOptions(); track quality.id) {
+        <button
+          type="button"
+          role="menuitemradio"
+          [attr.aria-checked]="selectedQuality() === quality.id"
+          [class.is-selected]="selectedQuality() === quality.id"
+          (click)="qualitySelected.emit(quality.id)"
+        >
+          <span>{{ quality.label }}</span>
+          @if (selectedQuality() === quality.id) {
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m9.2 16.6-4-4 1.4-1.4 2.6 2.6 8.2-8.2L18.8 7l-9.6 9.6Z" />
+            </svg>
+          }
+        </button>
+      }
+    </div>
+  }
+
+  <div class="record-dock" [class.is-recording]="isRecording()">
+    @if (isRecording()) {
+      <button
+        type="button"
+        class="stop-button"
+        aria-label="Stop recording"
+        title="Stop recording"
+        (click)="recordingStopped.emit()"
+      >
+        <span aria-hidden="true"></span>
+      </button>
+      <div class="progress-track" aria-label="Recording progress">
+        <span [style.width.%]="recordingProgress()"></span>
+      </div>
+      <strong>{{ recordingSeconds().toFixed(1) }}s</strong>
+    } @else {
+      <button
+        type="button"
+        class="record-button"
+        aria-label="Start recording"
+        title="Start recording"
+        (click)="recordingStarted.emit()"
+      >
+        <span aria-hidden="true"></span>
+      </button>
+    }
+  </div>
+</div>

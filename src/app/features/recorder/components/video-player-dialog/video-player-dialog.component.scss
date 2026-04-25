@@ -1,0 +1,14 @@
+.player-modal {
+  position: relative;
+  width: min(760px, 92vw);
+  overflow: hidden;
+  background: #dfe4e7;
+  border-radius: 6px;
+}
+
+.player-modal video {
+  display: block;
+  width: 100%;
+  max-height: 76vh;
+  object-fit: contain;
+}

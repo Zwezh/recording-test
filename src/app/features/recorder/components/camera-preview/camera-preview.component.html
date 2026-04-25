@@ -1,0 +1,14 @@
+<div class="preview-frame">
+  @if (isLoading()) {
+    <div class="loading" role="status" aria-label="Loading camera"></div>
+  }
+
+  @if (error()) {
+    <div class="camera-message">
+      <strong>Camera unavailable</strong>
+      <span>{{ error() }}</span>
+    </div>
+  }
+
+  <video #cameraPreview class="camera-preview" autoplay muted playsinline aria-label="Live camera preview"></video>
+</div>

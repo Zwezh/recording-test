@@ -1,0 +1,52 @@
+<main class="recorder-shell" [class.has-modal]="playingVideo() || pendingDelete()">
+  <div class="eyebrow" aria-live="polite">video recorder / {{ statusSuffix() }}</div>
+
+  @if (notice()) {
+    <section class="notice" role="status" aria-live="polite">
+      <span>{{ notice() }}</span>
+      <button type="button" class="text-button" (click)="dismissNotice()">Dismiss</button>
+    </section>
+  }
+
+  <section class="recorder-layout" aria-label="Video recorder">
+    <div class="stage">
+      <app-camera-preview [isLoading]="isCameraLoading()" [error]="cameraError()" />
+      <app-recorder-controls
+        [qualityOptions]="qualityOptions"
+        [selectedQuality]="selectedQuality()"
+        [settingsOpen]="settingsOpen()"
+        [isRecording]="isRecording()"
+        [recordingSeconds]="recordingSeconds()"
+        [recordingProgress]="recordingProgress()"
+        (settingsToggled)="toggleSettings()"
+        (qualitySelected)="chooseQuality($event)"
+        (recordingStarted)="startRecording()"
+        (recordingStopped)="stopRecording()"
+      />
+    </div>
+
+    <app-saved-videos-panel
+      [videos]="videoItems()"
+      [bandwidthLabel]="bandwidthLabel()"
+      [qualityLabel]="selectedProfile().label"
+      [manualOverride]="manualOverride()"
+      (videoPlayed)="playVideo($event)"
+      (deleteRequested)="requestDelete($event)"
+    />
+  </section>
+</main>
+
+@if (playingVideo(); as video) {
+  <app-video-player-dialog [video]="video" (closed)="closePlayer()" />
+}
+
+@if (pendingDelete()) {
+  <app-confirm-dialog
+    title="Delete this video?"
+    description="Are you sure you want to delete this video? This action cannot be undone."
+    confirmLabel="Delete video"
+    cancelLabel="Cancel"
+    (confirmed)="confirmDelete()"
+    (cancelled)="cancelDelete()"
+  />
+}
