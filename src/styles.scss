@@ -1,3 +1,114 @@
+:root {
+  --app-color-text: #1f2530;
+  --app-color-text-muted: #5f6672;
+  --app-color-page: #dcdcdc;
+  --app-color-surface: #fff;
+  --app-color-surface-muted: #dfe4e7;
+  --app-color-on-dark: #fff;
+  --app-color-on-dark-muted: #d8dbe2;
+  --app-color-menu-muted: #d5d7dc;
+  --app-color-eyebrow: #70747c;
+  --app-color-notice-text: #24272d;
+  --app-color-border: #c9d0dc;
+  --app-color-primary: #5367d8;
+  --app-color-primary-strong: #344bd8;
+  --app-color-success: #35a742;
+  --app-color-danger: #e2382c;
+  --app-color-danger-strong: #e3382c;
+  --app-color-record: #fb0d0d;
+  --app-color-control: #5d5f63;
+  --app-color-video-card: #171717;
+  --app-color-camera-bg: #111;
+  --app-gradient-app-frame: linear-gradient(135deg, #2f3032, #070707);
+  --app-gradient-panel: linear-gradient(180deg, #303133, #0c0c0d);
+  --app-gradient-camera: linear-gradient(135deg, #eceff0, #cdd3d7);
+  --app-gradient-loading: linear-gradient(135deg, #2c2d2f, #050505);
+  --app-overlay-backdrop: rgba(0, 0, 0, 0.55);
+  --app-overlay-camera-error: rgba(0, 0, 0, 0.7);
+  --app-overlay-video-gradient: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.72));
+  --app-overlay-control: rgba(36, 31, 25, 0.72);
+  --app-overlay-player-control: rgba(43, 35, 29, 0.72);
+  --app-overlay-menu: rgba(70, 72, 76, 0.88);
+  --app-overlay-modal-close: rgba(42, 43, 45, 0.78);
+  --app-overlay-subtle-light: rgba(255, 255, 255, 0.08);
+  --app-overlay-track: rgba(255, 255, 255, 0.34);
+  --app-overlay-spinner: rgba(255, 255, 255, 0.28);
+  --app-shadow-menu: 0 1rem 2rem rgba(0, 0, 0, 0.28);
+  --app-shadow-dialog: 0 1.5rem 4rem rgba(0, 0, 0, 0.35);
+  --app-space-0: 0;
+  --app-space-3xs: 0.1875rem;
+  --app-space-2xs: 0.25rem;
+  --app-space-2xs-plus: 0.3125rem;
+  --app-space-xs: 0.375rem;
+  --app-space-sm: 0.5rem;
+  --app-space-md: 0.625rem;
+  --app-space-lg: 0.75rem;
+  --app-space-xl: 0.875rem;
+  --app-space-2xl: 1rem;
+  --app-space-3xl: 1.125rem;
+  --app-space-4xl: 1.375rem;
+  --app-space-5xl: 1.5rem;
+  --app-space-6xl: 1.75rem;
+  --app-space-delete-offset: 0.4375rem;
+  --app-space-slider-thumb-offset: -0.4688rem;
+  --app-border-width: 0.0625rem;
+  --app-border-width-strong: 0.125rem;
+  --app-border-width-control: 0.25rem;
+  --app-radius-sm: 0.1875rem;
+  --app-radius-md: 0.25rem;
+  --app-radius-lg: 0.3125rem;
+  --app-radius-xl: 0.375rem;
+  --app-radius-round: 50%;
+  --app-radius-pill: 999rem;
+  --app-font-size-2xs: 0.625rem;
+  --app-font-size-xs: 0.6875rem;
+  --app-font-size-sm: 0.75rem;
+  --app-font-size-md: 0.8125rem;
+  --app-font-size-lg: 1.0625rem;
+  --app-icon-sm: 1.25rem;
+  --app-icon-md: 1.375rem;
+  --app-icon-empty: 1.5625rem;
+  --app-icon-lg: 1.625rem;
+  --app-icon-xl: 2.125rem;
+  --app-size-dot-sm: 0.9375rem;
+  --app-size-button-sm: 2.375rem;
+  --app-size-button-md: 2.5rem;
+  --app-size-button-lg: 2.625rem;
+  --app-size-button-xl: 3.125rem;
+  --app-size-button-compact: 2.75rem;
+  --app-size-panel: 11.25rem;
+  --app-size-control-dock: 12.25rem;
+  --app-size-control-dock-sm: 9.25rem;
+  --app-size-control-dock-recording-sm: 13.125rem;
+  --app-size-control-dock-height: 3.5rem;
+  --app-size-progress: 7rem;
+  --app-size-time-label: 2.25rem;
+  --app-size-spinner: 3.375rem;
+  --app-size-preview-min: 23.75rem;
+  --app-size-preview-min-sm: 17.5rem;
+  --app-size-saved-panel-min: 13.75rem;
+  --app-size-saved-list-max: 21.25rem;
+  --app-size-thumbnail-min: 9.375rem;
+  --app-size-player-controls: 22rem;
+  --app-size-player-track-min: 8rem;
+  --app-size-player-track-min-sm: 5rem;
+  --app-size-player-max: 47.5rem;
+  --app-size-dialog-max: 26.25rem;
+  --app-size-dialog-copy: 18.75rem;
+  --app-size-page-max: 72.5rem;
+  --app-size-page-min: 32.5rem;
+  --app-size-page-max-height: 41.875rem;
+  --app-size-quality-menu: 15.625rem;
+  --app-size-quality-menu-offset: 3.5rem;
+  --app-size-quality-menu-viewport-gap: 9.375rem;
+  --app-focus-ring-width: 0.1875rem;
+  --app-modal-padding: 1.5rem;
+  --app-modal-close-offset: 0.625rem;
+  --app-modal-blur: 0.5rem;
+  --app-breakpoint-sm: 35rem;
+  --app-breakpoint-md: 51.25rem;
+}
+
 *,
 *::before,
 *::after {
@@ -8,8 +119,8 @@ html {
   min-height: 100%;
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #1f2530;
-  background: #dcdcdc;
+  color: var(--app-color-text);
+  background: var(--app-color-page);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -31,8 +142,8 @@ a:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 0.1875rem solid #fff;
-  outline-offset: 0.1875rem;
+  outline: var(--app-focus-ring-width) solid var(--app-color-on-dark);
+  outline-offset: var(--app-focus-ring-width);
 }
 
 .modal-backdrop {
@@ -41,30 +152,30 @@ select:focus-visible {
   z-index: 20;
   display: grid;
   place-items: center;
-  padding: 1.5rem;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(0.5rem);
+  padding: var(--app-modal-padding);
+  background: var(--app-overlay-backdrop);
+  backdrop-filter: blur(var(--app-modal-blur));
 }
 
 .modal-close {
   position: absolute;
-  top: 0.625rem;
-  right: 0.625rem;
+  top: var(--app-modal-close-offset);
+  right: var(--app-modal-close-offset);
   z-index: 2;
   display: inline-grid;
   place-items: center;
-  width: 2.125rem;
-  height: 2.125rem;
-  color: #fff;
-  background: rgba(42, 43, 45, 0.78);
+  width: var(--app-icon-xl);
+  height: var(--app-icon-xl);
+  color: var(--app-color-on-dark);
+  background: var(--app-overlay-modal-close);
   border: 0;
-  border-radius: 50%;
+  border-radius: var(--app-radius-round);
   cursor: pointer;
 }
 
 .modal-close svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: var(--app-icon-sm);
+  height: var(--app-icon-sm);
   fill: currentColor;
 }
 

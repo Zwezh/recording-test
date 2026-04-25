@@ -1,52 +1,52 @@
 :host {
   display: block;
   min-height: 100vh;
-  color: #f6f7fb;
-  background: #dcdcdc;
+  color: var(--app-color-on-dark);
+  background: var(--app-color-page);
 }
 
 .recorder-shell {
-  width: min(100%, 72.5rem);
+  width: min(100%, var(--app-size-page-max));
   margin: 0 auto;
-  padding: 1.125rem;
+  padding: var(--app-space-3xl);
 }
 
 .eyebrow {
-  margin: 0 0 0.5rem;
-  color: #70747c;
-  font-size: 0.8125rem;
+  margin: 0 0 var(--app-space-sm);
+  color: var(--app-color-eyebrow);
+  font-size: var(--app-font-size-md);
 }
 
 .notice {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.75rem;
-  padding: 0.625rem 0.75rem;
-  color: #24272d;
-  background: #fff;
-  border: 0.0625rem solid #c9d0dc;
-  border-radius: 0.375rem;
+  gap: var(--app-space-2xl);
+  margin-bottom: var(--app-space-lg);
+  padding: var(--app-space-md) var(--app-space-lg);
+  color: var(--app-color-notice-text);
+  background: var(--app-color-on-dark);
+  border: var(--app-border-width) solid var(--app-color-border);
+  border-radius: var(--app-radius-xl);
 }
 
 .text-button {
-  min-height: 2.125rem;
-  padding: 0 0.75rem;
-  color: #344bd8;
+  min-height: var(--app-icon-xl);
+  padding: 0 var(--app-space-lg);
+  color: var(--app-color-primary-strong);
   background: transparent;
-  border: 0.0625rem solid #5366d6;
-  border-radius: 0.25rem;
+  border: var(--app-border-width) solid var(--app-color-primary);
+  border-radius: var(--app-radius-md);
   cursor: pointer;
 }
 
 .recorder-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 11.25rem;
-  gap: 1.5rem;
-  min-height: clamp(32.5rem, 62vw, 41.875rem);
-  padding: 1.5rem;
-  background: linear-gradient(135deg, #2f3032, #070707);
+  grid-template-columns: minmax(0, 1fr) var(--app-size-panel);
+  gap: var(--app-space-5xl);
+  min-height: clamp(var(--app-size-page-min), 62vw, var(--app-size-page-max-height));
+  padding: var(--app-space-5xl);
+  background: var(--app-gradient-app-frame);
 }
 
 .stage {
@@ -56,12 +56,12 @@
 
 @media (max-width: 51.25rem) {
   .recorder-shell {
-    padding: 0.75rem;
+    padding: var(--app-space-lg);
   }
 
   .recorder-layout {
     grid-template-columns: 1fr;
     min-height: auto;
-    padding: 0.875rem;
+    padding: var(--app-space-xl);
   }
 }

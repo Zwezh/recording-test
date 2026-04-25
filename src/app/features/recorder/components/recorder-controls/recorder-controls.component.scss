@@ -1,8 +1,8 @@
 .control-row {
   position: absolute;
-  right: 1.125rem;
-  bottom: 1.125rem;
-  left: 1.125rem;
+  right: var(--app-space-3xl);
+  bottom: var(--app-space-3xl);
+  left: var(--app-space-3xl);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -22,30 +22,30 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 3.125rem;
-  height: 3.125rem;
-  color: #fff;
-  background: #5d5f63;
-  border-radius: 50%;
+  width: var(--app-size-button-xl);
+  height: var(--app-size-button-xl);
+  color: var(--app-color-on-dark);
+  background: var(--app-color-control);
+  border-radius: var(--app-radius-round);
   pointer-events: auto;
 }
 
 .settings-button svg {
-  width: 1.625rem;
-  height: 1.625rem;
+  width: var(--app-icon-lg);
+  height: var(--app-icon-lg);
   fill: currentColor;
 }
 
 .quality-menu {
   position: absolute;
-  left: 3.5rem;
+  left: var(--app-size-quality-menu-offset);
   bottom: 0;
   z-index: 4;
-  width: min(15.625rem, calc(100vw - 9.375rem));
-  padding: 0.625rem;
-  background: rgba(70, 72, 76, 0.88);
-  border-radius: 0.25rem;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.28);
+  width: min(var(--app-size-quality-menu), calc(100vw - var(--app-size-quality-menu-viewport-gap)));
+  padding: var(--app-space-md);
+  background: var(--app-overlay-menu);
+  border-radius: var(--app-radius-md);
+  box-shadow: var(--app-shadow-menu);
   pointer-events: auto;
 }
 
@@ -54,9 +54,9 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  min-height: 2.375rem;
-  padding: 0 0.25rem;
-  color: #fff;
+  min-height: var(--app-size-button-sm);
+  padding: 0 var(--app-space-2xs);
+  color: var(--app-color-on-dark);
   text-align: left;
   background: transparent;
   border: 0;
@@ -64,102 +64,102 @@
 }
 
 .quality-menu button:not(.is-selected) {
-  color: #d5d7dc;
+  color: var(--app-color-menu-muted);
 }
 
 .quality-menu svg {
-  width: 1.375rem;
-  height: 1.375rem;
-  fill: #35a742;
+  width: var(--app-icon-md);
+  height: var(--app-icon-md);
+  fill: var(--app-color-success);
 }
 
 .record-dock {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 12.25rem;
-  height: 3.5rem;
-  padding: 0 1.125rem;
-  background: rgba(36, 31, 25, 0.72);
-  border-radius: 62.4375rem;
+  min-width: var(--app-size-control-dock);
+  height: var(--app-size-control-dock-height);
+  padding: 0 var(--app-space-3xl);
+  background: var(--app-overlay-control);
+  border-radius: var(--app-radius-pill);
   pointer-events: auto;
 }
 
 .record-dock.is-recording {
-  gap: 0.75rem;
+  gap: var(--app-space-lg);
 }
 
 .record-button {
-  width: 2.375rem;
-  height: 2.375rem;
-  background: #fff;
-  border-radius: 50%;
+  width: var(--app-size-button-sm);
+  height: var(--app-size-button-sm);
+  background: var(--app-color-on-dark);
+  border-radius: var(--app-radius-round);
 }
 
 .record-button span {
-  width: 1.375rem;
-  height: 1.375rem;
-  background: #fb0d0d;
-  border-radius: 50%;
+  width: var(--app-icon-md);
+  height: var(--app-icon-md);
+  background: var(--app-color-record);
+  border-radius: var(--app-radius-round);
 }
 
 .stop-button {
-  width: 2.625rem;
-  height: 2.625rem;
-  background: #fff;
-  border: 0.25rem solid #5367d8;
-  border-radius: 50%;
+  width: var(--app-size-button-lg);
+  height: var(--app-size-button-lg);
+  background: var(--app-color-on-dark);
+  border: var(--app-border-width-control) solid var(--app-color-primary);
+  border-radius: var(--app-radius-round);
 }
 
 .stop-button span {
-  width: 0.9375rem;
-  height: 0.9375rem;
-  background: #5367d8;
-  border-radius: 0.1875rem;
+  width: var(--app-size-dot-sm);
+  height: var(--app-size-dot-sm);
+  background: var(--app-color-primary);
+  border-radius: var(--app-radius-sm);
 }
 
 .progress-track {
-  width: 7rem;
-  height: 1rem;
+  width: var(--app-size-progress);
+  height: var(--app-space-2xl);
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.34);
-  border-radius: 0.1875rem;
+  background: var(--app-overlay-track);
+  border-radius: var(--app-radius-sm);
 }
 
 .progress-track span {
   display: block;
   height: 100%;
-  background: #5367d8;
+  background: var(--app-color-primary);
 }
 
 .record-dock strong {
-  min-width: 2.25rem;
-  font-size: 0.8125rem;
+  min-width: var(--app-size-time-label);
+  font-size: var(--app-font-size-md);
 }
 
 @media (max-width: 35rem) {
   .control-row {
-    right: 0.75rem;
-    bottom: 0.75rem;
-    left: 0.75rem;
+    right: var(--app-space-lg);
+    bottom: var(--app-space-lg);
+    left: var(--app-space-lg);
   }
 
   .record-dock {
-    min-width: 9.25rem;
+    min-width: var(--app-size-control-dock-sm);
   }
 
   .record-dock.is-recording {
-    min-width: 13.125rem;
+    min-width: var(--app-size-control-dock-recording-sm);
   }
 
   .settings-button {
-    width: 2.75rem;
-    height: 2.75rem;
+    width: var(--app-size-button-compact);
+    height: var(--app-size-button-compact);
   }
 
   .quality-menu {
     right: 0;
-    bottom: 3.375rem;
+    bottom: var(--app-size-spinner);
     left: 0;
     width: auto;
   }
