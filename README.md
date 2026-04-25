@@ -56,7 +56,6 @@ Recorded videos are stored as `Blob` records in IndexedDB. IndexedDB was chosen 
 
 ## Assumptions and Challenges
 
-- The Figma file was not available through a local Figma integration in this workspace, so the UI was implemented from the screenshots provided in the assignment prompt.
 - Browser support for `MediaRecorder` and webcam permissions varies; the app detects unsupported recording MIME types and falls back to the browser default when needed.
 - The Network Information API is not supported by every browser, so defaulting to medium quality is part of the expected flow.
 
@@ -67,3 +66,22 @@ Recorded videos are stored as `Blob` records in IndexedDB. IndexedDB was chosen 
 - Saved videos: scrollable persisted video list with play and delete actions.
 - Playback: modal video player.
 - Delete confirmation: accessible confirmation dialog before removing a recording.
+
+## Scrinshots
+
+Start video recorder
+![ScreenShot](https://snipboard.io/B6tdJg.jpg)
+Empty
+![ScreenShot](https://snipboard.io/PskiO0.jpg)
+Settings
+![ScreenShot](https://snipboard.io/uiZNdk.jpg)
+Recording
+![ScreenShot](https://snipboard.io/HFvZoR.jpg)
+Recorded videos
+![ScreenShot](https://snipboard.io/fQE0cm.jpg)
+Playing recordered videos
+![ScreenShot](![alt text](image.png))
+Settings
+![ScreenShot](https://snipboard.io/uiZNdk.jpg)
+Delete recorded video
+![ScreenShot](https://snipboard.io/TuM96j.jpg)
