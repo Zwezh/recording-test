@@ -7,6 +7,50 @@
         />
       </svg>
     </button>
-    <video [src]="video().url" controls autoplay></video>
+    <video
+      #videoPlayer
+      [src]="video().url"
+      autoplay
+      playsinline
+      (loadedmetadata)="syncMetadata($event)"
+      (timeupdate)="syncTime($event)"
+      (play)="setPlaying(true)"
+      (pause)="setPlaying(false)"
+      (ended)="setPlaying(false)"
+    ></video>
+
+    <div class="player-controls" aria-label="Recorded video controls">
+      <button
+        type="button"
+        class="playback-button"
+        [attr.aria-label]="isPlaying() ? 'Pause recorded video' : 'Play recorded video'"
+        (click)="togglePlayback()"
+      >
+        @if (isPlaying()) {
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5h4v14H7V5Zm6 0h4v14h-4V5Z" />
+          </svg>
+        } @else {
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 5v14l11-7L8 5Z" />
+          </svg>
+        }
+      </button>
+
+      <span class="time-label">{{ formatTime(currentTime()) }}</span>
+      <label class="seek-control">
+        <span class="sr-only">Seek recorded video</span>
+        <input
+          type="range"
+          min="0"
+          [max]="duration()"
+          step="0.1"
+          [value]="currentTime()"
+          [style.--progress.%]="progress()"
+          (input)="seek($event)"
+        />
+      </label>
+      <span class="time-label">{{ formatTime(duration()) }}</span>
+    </div>
   </section>
 </div>
