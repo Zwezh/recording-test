@@ -1,59 +1,69 @@
-# RecordingTest
+# Bandwidth Recorder
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.1.
+Angular front-end assignment for checking available bandwidth, selecting webcam recording quality, recording short videos, and keeping recordings available after refresh or reopening the browser tab.
 
-## Development server
+## Setup
 
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Install dependencies:
 
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Start the app:
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+Open `http://localhost:4200/`.
 
-To build the project run:
+Build for production:
 
 ```bash
-ng build
+npm run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Run unit tests:
 
 ```bash
-ng test
+npm test -- --watch=false
 ```
 
-## Running end-to-end tests
+## Approach
 
-For end-to-end (e2e) testing, run:
+State is managed with NGXS. The recorder state stores detected bandwidth, the selected quality, whether the user manually overrode the automatic quality, UI notices, and the saved video list.
 
-```bash
-ng e2e
-```
+Bandwidth is detected with the browser Network Information API (`navigator.connection.downlink`) when available. The app maps the result to the assignment breakpoints:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- `< 2 Mbps`: low, 360p
+- `2-5 Mbps`: medium, 720p
+- `> 5 Mbps`: high, 1080p
 
-## Additional Resources
+If the browser does not expose bandwidth information, the app defaults to medium quality and shows a notice.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Recording uses `navigator.mediaDevices.getUserMedia` and `MediaRecorder`. Recordings stop automatically after 10 seconds, and the user can stop earlier. Quality changes restart the camera stream when not actively recording.
+
+## Persistence
+
+Recorded videos are stored as `Blob` records in IndexedDB. IndexedDB was chosen because recorded video blobs are too large and binary-heavy for `localStorage`, while object URLs are temporary and cannot survive a reload. On startup, the app reloads all saved videos from IndexedDB and creates fresh object URLs for playback.
+
+## Error Handling
+
+- Bandwidth detection failure: defaults to medium quality and displays a dismissible notice.
+- Webcam permission or hardware failure: displays an in-app error and uses a browser alert, as requested.
+- Storage failures: displays a dismissible notice.
+
+## Assumptions and Challenges
+
+- The Figma file was not available through a local Figma integration in this workspace, so the UI was implemented from the screenshots provided in the assignment prompt.
+- Browser support for `MediaRecorder` and webcam permissions varies; the app detects unsupported recording MIME types and falls back to the browser default when needed.
+- The Network Information API is not supported by every browser, so defaulting to medium quality is part of the expected flow.
+
+## Key States
+
+- Empty recorder: live camera preview, quality settings, and empty saved-video panel.
+- Recording: progress bar with elapsed seconds and stop control.
+- Saved videos: scrollable persisted video list with play and delete actions.
+- Playback: modal video player.
+- Delete confirmation: accessible confirmation dialog before removing a recording.
