@@ -79,8 +79,8 @@ Recording
 ![ScreenShot](https://snipboard.io/HFvZoR.jpg)
 Recorded videos
 ![ScreenShot](https://snipboard.io/fQE0cm.jpg)
-Playing recordered videos
-![ScreenShot](![alt text](image.png))
+Playing recorded videos
+![ScreenShot](https://snipboard.io/VYUhlJ.jpg)
 Settings
 ![ScreenShot](https://snipboard.io/uiZNdk.jpg)
 Delete recorded video
